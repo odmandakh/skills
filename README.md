@@ -9,8 +9,13 @@ Each folder under `skills/` is a self-contained skill — a `SKILL.md` (frontmat
 | Skill | Description |
 |-------|-------------|
 | [`cpp-pro`](skills/cpp-pro) | Writes, optimizes, and debugs C++ applications using modern C++20/23 features, template metaprogramming, and high-performance systems techniques |
+| [`cpp-coding-standards`](skills/cpp-coding-standards) | C++ coding standards based on the C++ Core Guidelines — enforces modern, safe, idiomatic practices when writing, reviewing, or refactoring C++ |
+| [`java-springboot`](skills/java-springboot) | Best practices for developing applications with Spring Boot |
 | [`leetcode-teacher`](skills/leetcode-teacher) | Interactive LeetCode-style teacher for technical interview preparation across Python/TypeScript/Kotlin/Swift |
 | [`leetcode-import`](skills/leetcode-import) | Scaffolds a new LeetCode problem or contest question from a pasted LeetCode page into the `personal/leetcode` repo's C++ harness (structure only, never the solve logic) |
+| [`frontend-design`](skills/frontend-design) | Guidance for distinctive, intentional visual design when building or reshaping UI — aesthetic direction, typography, and non-templated choices |
+| [`ui-ux-pro-max`](skills/ui-ux-pro-max) | UI/UX design intelligence for web, mobile, and desktop — searchable styles, palettes, font pairings, UX guidelines, icons, and stack-specific implementation |
+| [`find-skills`](skills/find-skills) | Helps discover and install agent skills when asked "is there a skill for X" or similar |
 
 > Company/work-specific skills (UBCab v4 backend tooling) live in the separate `mezorn-com/backend-skills` repo, not here.
 >
