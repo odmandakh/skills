@@ -24,6 +24,7 @@ is_skipped() {
 mkdir -p "$target_dir"
 
 linked=""
+added=""
 skipped=""
 
 for dir in "$skills_dir"/*/; do
@@ -33,6 +34,7 @@ for dir in "$skills_dir"/*/; do
 		skipped="$skipped $name"
 		continue
 	fi
+	[ -e "$target_dir/$name" ] || added="$added $name"
 	ln -sfn "$skills_dir/$name" "$target_dir/$name"
 	linked="$linked $name"
 done
@@ -56,3 +58,10 @@ done
 echo "Linked:  ${linked:-(none)}"
 echo "Skipped: ${skipped:-(none)} (project-scoped)"
 echo "Pruned:  ${pruned:-(none)}"
+
+if [ -n "$added$pruned" ]; then
+	echo
+	echo "New:    ${added:-(none)}"
+	echo "Restart any open Claude Code session to pick up added/removed skills"
+	echo "(skills are only scanned at session start)."
+fi

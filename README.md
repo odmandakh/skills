@@ -13,13 +13,14 @@ Each folder under `skills/` is a self-contained skill — a `SKILL.md` (frontmat
 | [`java-springboot`](skills/java-springboot) | Best practices for developing applications with Spring Boot |
 | [`leetcode-teacher`](skills/leetcode-teacher) | Interactive LeetCode-style teacher for technical interview preparation across Python/TypeScript/Kotlin/Swift |
 | [`leetcode-import`](skills/leetcode-import) | Scaffolds a new LeetCode problem or contest question from a pasted LeetCode page into the `personal/leetcode` repo's C++ harness (structure only, never the solve logic) |
+| [`leetcode-add-test`](skills/leetcode-add-test) | Interactively adds one `<id>.in`/`<id>.out` test case to an existing `personal/leetcode` problem — asks for problem number, test id, each input parameter, then expected output, formatted to match that problem's `run.cpp` parsers |
 | [`frontend-design`](skills/frontend-design) | Guidance for distinctive, intentional visual design when building or reshaping UI — aesthetic direction, typography, and non-templated choices |
 | [`ui-ux-pro-max`](skills/ui-ux-pro-max) | UI/UX design intelligence for web, mobile, and desktop — searchable styles, palettes, font pairings, UX guidelines, icons, and stack-specific implementation |
 | [`find-skills`](skills/find-skills) | Helps discover and install agent skills when asked "is there a skill for X" or similar |
 
 > Company/work-specific skills (UBCab v4 backend tooling) live in the separate `mezorn-com/backend-skills` repo, not here.
 >
-> `leetcode-import` assumes the `personal/leetcode` repo's own scripts and conventions — it's installed globally like the rest, but only actually does anything useful inside that repo.
+> `leetcode-import` and `leetcode-add-test` assume the `personal/leetcode` repo's own scripts and conventions — it's installed globally like the rest, but only actually does anything useful inside that repo.
 
 ## Install
 
@@ -31,7 +32,7 @@ cd skills
 
 `scripts/install.sh` symlinks every `skills/<name>/` folder into `~/.claude/skills/<name>` (edits in this repo flow straight through), and prunes any stale symlink left behind by a skill folder you removed or renamed. Re-run it any time you add, rename, or remove a skill. (It has an internal `skip_list` for any future skill that shouldn't be installed globally — currently empty.)
 
-Reload any open Claude Code window afterwards so it picks up new skills.
+**Restart any open Claude Code session afterwards.** Claude Code only scans `~/.claude/skills/` when a session starts, so a skill added or renamed mid-session won't show up (or be invocable as `/<name>`) until you start a new session. The same goes for changes to a skill's `name`/`description` frontmatter. Edits to the body of an existing `SKILL.md` apply the next time the skill runs.
 
 ## Add a new skill
 
