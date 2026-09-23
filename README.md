@@ -19,26 +19,17 @@ Each folder under `skills/` is a self-contained skill — a `SKILL.md` (frontmat
 
 > Company/work-specific skills (UBCab v4 backend tooling) live in the separate `mezorn-com/backend-skills` repo, not here.
 >
-> `leetcode-import` is project-scoped — it assumes the `personal/leetcode` repo's own scripts and conventions, so it's only symlinked into that repo's `.claude/skills/`, not into `~/.claude/skills/` globally.
+> `leetcode-import` assumes the `personal/leetcode` repo's own scripts and conventions — it's installed globally like the rest, but only actually does anything useful inside that repo.
 
 ## Install
 
 ```bash
 git clone git@github.com-personal:odmandakh/skills.git
 cd skills
+./scripts/install.sh
 ```
 
-Symlink the skills you want (edits in this repo flow straight through):
-
-```bash
-# one skill
-ln -s "$(pwd)/skills/cpp-pro" ~/.claude/skills/cpp-pro
-
-# all skills in this repo
-for d in skills/*/; do
-  ln -sfn "$(pwd)/$d" ~/.claude/skills/"$(basename "$d")"
-done
-```
+`scripts/install.sh` symlinks every `skills/<name>/` folder into `~/.claude/skills/<name>` (edits in this repo flow straight through), and prunes any stale symlink left behind by a skill folder you removed or renamed. Re-run it any time you add, rename, or remove a skill. (It has an internal `skip_list` for any future skill that shouldn't be installed globally — currently empty.)
 
 Reload any open Claude Code window afterwards so it picks up new skills.
 
@@ -46,7 +37,7 @@ Reload any open Claude Code window afterwards so it picks up new skills.
 
 1. Create `skills/<name>/SKILL.md` with YAML frontmatter (`name` matching the folder, and a `description` specific enough for Claude to know when to trigger it — include the phrasings people will actually type).
 2. Bundle supporting files (templates, references, scripts) in subfolders and link to them from `SKILL.md` with relative links.
-3. Symlink it into `~/.claude/skills/` and test it in a real repo.
+3. Run `./scripts/install.sh` and test it in a real repo.
 4. Add a row to the table above.
 
 ## Benchmarking
