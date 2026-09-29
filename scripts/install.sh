@@ -62,6 +62,6 @@ echo "Pruned:  ${pruned:-(none)}"
 if [ -n "$added$pruned" ]; then
 	echo
 	echo "New:    ${added:-(none)}"
-	echo "Restart any open Claude Code session to pick up added/removed skills"
-	echo "(skills are only scanned at session start)."
+	echo "Open Claude Code sessions should pick up added/removed skills on their own;"
+	echo "restart Claude Code only if a change doesn't show up."
 fi

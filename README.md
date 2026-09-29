@@ -32,7 +32,7 @@ cd skills
 
 `scripts/install.sh` symlinks every `skills/<name>/` folder into `~/.claude/skills/<name>` (edits in this repo flow straight through), and prunes any stale symlink left behind by a skill folder you removed or renamed. Re-run it any time you add, rename, or remove a skill. (It has an internal `skip_list` for any future skill that shouldn't be installed globally — currently empty.)
 
-**Restart any open Claude Code session afterwards.** Claude Code only scans `~/.claude/skills/` when a session starts, so a skill added or renamed mid-session won't show up (or be invocable as `/<name>`) until you start a new session. The same goes for changes to a skill's `name`/`description` frontmatter. Edits to the body of an existing `SKILL.md` apply the next time the skill runs.
+Open Claude Code sessions should pick up added, renamed, or removed skills on their own. If one doesn't show up (or isn't invocable as `/<name>`), restart Claude Code. Edits to the body of an existing `SKILL.md` apply the next time the skill runs.
 
 ## Add a new skill
 
